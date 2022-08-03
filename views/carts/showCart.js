@@ -71,7 +71,7 @@ export default ({items})=>{
                 Total
               </div>
               ${renderedDiscount}
-              <form method="POST" action="/signout">
+              <form method="POST" action="/buy">
               <button class="button is-primary">Buy</button>
               </form>
             </div>

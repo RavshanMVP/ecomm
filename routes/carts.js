@@ -8,7 +8,8 @@ import history from "../views/carts/history.js";
 const router = express.Router();
 router.post("/cart/products/:id", async(req, res)=>{
     let cart;
-    let date = `${new Date().getDate()}/${new Date().getMonth()+1}/${new Date().getFullYear()}`;
+    let date = `${new Date().getDate()}/${new Date().getMonth()+1}/${new Date().getFullYear()} ` +
+    `${new Date().getHours()}:${new Date().getMinutes()}:${new Date().getSeconds()}`;
     if (!req.session.CartID){
         cart = await carts.create({items:[]});
         req.session.CartID = cart.id;
@@ -94,8 +95,23 @@ router.post("/history",async (req, res) => {
         item.product = product;
     }
     }
+
+    myCarts = myCarts.sort((a,b)=>{
+        return b["date"].localeCompare(a["date"]);
+    })
     res.send(history({carts:myCarts}));
 
+})
+
+router.post("/buy", async (req, res) => {
+    if (req.session.userID){
+    const cart = await carts.getOne(req.session.CartID);
+    req.session.CartID = null;
+    }
+    else{
+        req.session = null;
+    }
+    res.redirect("/");
 })
 
 export default router;

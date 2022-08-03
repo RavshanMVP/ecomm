@@ -14,7 +14,7 @@ export default ({carts})=>{
                           </div>
                         </div>
                       `;}).join("")
-                        ;})
+                        ;}).join("")
 
     return layout({
         content: `
