@@ -85,7 +85,7 @@ router.post("/cart/:id/dec", async (req, res)=>{
     return res.redirect("/cart");
 })
 
-router.post("/history", middleware.checkAuthentication,async (req, res) => {
+router.post("/history",async (req, res) => {
     let myCarts = await carts.getAll();
     myCarts = await myCarts.filter(cart => cart.user === req.session.userID);
     for (let cart of myCarts){
@@ -94,7 +94,6 @@ router.post("/history", middleware.checkAuthentication,async (req, res) => {
         item.product = product;
     }
     }
-
     res.send(history({carts:myCarts}));
 
 })
