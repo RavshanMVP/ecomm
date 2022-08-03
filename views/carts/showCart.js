@@ -4,6 +4,17 @@ export default ({items})=>{
     const total = items.reduce((prev, curr)=>{
         return prev + curr.product.price *curr.quantity;
     }, 0)
+
+    let renderedDiscount;
+    if (total>200){
+        renderedDiscount = `<strike><h1 >$${total}</h1></strike><h1 class="title">$${(0.8*total).toFixed(2)}</h1>`
+    }
+    else if (total>100){
+        renderedDiscount = `<strike><h1 >$${total}</h1></strike><h1 class="title">$${(0.9*total).toFixed(2)}</h1>`
+    }
+    else{
+        renderedDiscount = `<h1 class="title">$${total}</h1>`
+    }
     const renderedItems = items
         .map(item => {
             return `
@@ -59,7 +70,7 @@ export default ({items})=>{
               <div class="message-header">
                 Total
               </div>
-              <h1 class="title">$${total}</h1>
+              ${renderedDiscount}
               <form method="POST" action="/signout">
               <button class="button is-primary">Buy</button>
               </form>

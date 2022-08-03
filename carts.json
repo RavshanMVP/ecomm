@@ -43,7 +43,29 @@
     "id": "c6c162a61"
   },
   {
-    "items": [],
+    "items": [
+      {
+        "productID": "f6b1fbbc",
+        "quantity": 3
+      },
+      {
+        "productID": "ac3d7258",
+        "quantity": 1
+      },
+      {
+        "productID": "ed1a0390",
+        "quantity": 1
+      }
+    ],
     "id": "c1dc0c525"
+  },
+  {
+    "items": [
+      {
+        "productID": "e7fccbd5",
+        "quantity": 4
+      }
+    ],
+    "id": "cf82ab1e3"
   }
 ]

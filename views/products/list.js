@@ -1,6 +1,6 @@
 import layout from "./layout.js";
 
-export default ({products})=>{
+export default ({products, searchName=""})=>{
     let renderedProducts = products
         .map(product => {
             return `
@@ -27,7 +27,7 @@ export default ({products})=>{
         .join('\n');
 
     if(!renderedProducts){
-        renderedProducts = `<h2 class="title text-center"> No products found with the given name.</h2>`
+        renderedProducts = `<h2 class="title text-center"> No products found with ${searchName}.</h2>`
     }
 
     return layout({

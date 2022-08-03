@@ -14,7 +14,7 @@ router.get("/", async (req, res) => {
 router.post("/search", async (req, res) => {
     let products = await productsRep.search(req.body.search);
     req.session.search = req.body.search;
-    res.send(list({products}))
+    res.send(list({products, searchName:req.body.search}))
 })
 
 router.post("/sort", async (req, res) => {
