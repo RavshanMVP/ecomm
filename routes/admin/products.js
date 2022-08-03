@@ -23,6 +23,7 @@ router.get("/admin/products/new",
     res.send(newProduct({}));
 });
 
+
 router.post("/admin/products/new",
     middleware.checkAuthentication,
     upload.single("image"),
@@ -31,16 +32,23 @@ router.post("/admin/products/new",
     async (req, res) => {
     const {title, price} = req.body;
 
+
     try {
         const image = (req.file.buffer.toString("base64"));
         await products.create({title, price, image});
-        res.redirect("/admin/products");
+        if (req.body.button_id === "1") {
+            res.redirect("/admin/products");
+        }
+        else{
+            res.redirect("/admin/products/new")
+        }
     }
     catch (err){
         res.send("You must return image");
     }
 
 });
+
 
 router.get("/admin/products/:id",
     middleware.checkAuthentication,
@@ -62,6 +70,7 @@ router.post("/admin/products/:id",
     }),
     async (req, res) => {
         const {title, price} = req.body;
+
         try {
             if (req.file) {
                 const image = (req.file.buffer.toString("base64"));

@@ -5,7 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="47c1dcb9-df5a-44d2-8671-937ece88bc07" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/carts.json" beforeDir="false" afterPath="$PROJECT_DIR$/carts.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/products.json" beforeDir="false" afterPath="$PROJECT_DIR$/products.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/repositories/products.js" beforeDir="false" afterPath="$PROJECT_DIR$/repositories/products.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/admin/products.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin/products.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/products.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/products.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/admin/products/new product.js" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/products/new product.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/products/list.js" beforeDir="false" afterPath="$PROJECT_DIR$/views/products/list.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,11 +77,14 @@
       <recent name="C:\Programming\JS\ecomm\styles\css" />
     </key>
   </component>
-  <component name="RunManager" selected="Node.js.temp.js (1)">
+  <component name="RunManager" selected="Node.js.products.js (1)">
     <configuration name="auth.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/routes/admin/auth.js" working-dir="$PROJECT_DIR$/routes/admin">
       <method v="2" />
     </configuration>
     <configuration name="index.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/index.js" working-dir="$PROJECT_DIR$">
+      <method v="2" />
+    </configuration>
+    <configuration name="products.js (1)" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/repositories/products.js" working-dir="$PROJECT_DIR$/repositories">
       <method v="2" />
     </configuration>
     <configuration name="products.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/routes/admin/products.js" working-dir="$PROJECT_DIR$/routes/admin">
@@ -83,16 +93,13 @@
     <configuration name="temp.js (1)" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/styles/temp.js" working-dir="$PROJECT_DIR$/styles">
       <method v="2" />
     </configuration>
-    <configuration name="users.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/repositories/users.js" working-dir="$PROJECT_DIR$/repositories">
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Node.js.products.js (1)" />
         <item itemvalue="Node.js.temp.js (1)" />
         <item itemvalue="Node.js.products.js" />
         <item itemvalue="Node.js.auth.js" />
         <item itemvalue="Node.js.index.js" />
-        <item itemvalue="Node.js.users.js" />
       </list>
     </recent_temporary>
   </component>
@@ -117,7 +124,8 @@
       <workItem from="1659343878915" duration="20121000" />
       <workItem from="1659432683621" duration="16937000" />
       <workItem from="1659453637124" duration="593000" />
-      <workItem from="1659456675381" duration="12146000" />
+      <workItem from="1659456675381" duration="12468000" />
+      <workItem from="1659514819305" duration="10528000" />
     </task>
     <servers />
   </component>

@@ -8,7 +8,7 @@ export default  ({errors})=>{
         <div class="column is-half">
           <h1 class="subtitle">Create a Product</h1>
 
-          <form method="POST" enctype="multipart/form-data">
+          <form method="POST" enctype="multipart/form-data" style="display:inline;">
             <div class="field">
               <label class="label">Title</label>
               <input class="input" placeholder="Title" name="title">
@@ -26,8 +26,13 @@ export default  ({errors})=>{
               <input type="file" name="image" />
             </div>
             <br />
-            <button class="button is-primary">Create</button>
+            <button class="button is-primary" name="button_id" value="1">Create</button>
+            <form method="post" enctype="multipart/form-data" 
+             style="display:inline;">
+                <button class="button is-info" name="button_id" value="2">Create and add another</button>
+            </form>
           </form>
+
         </div>
       </div>
     `
