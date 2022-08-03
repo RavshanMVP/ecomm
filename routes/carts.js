@@ -99,6 +99,9 @@ router.post("/history",async (req, res) => {
     myCarts = myCarts.sort((a,b)=>{
         return b["date"].localeCompare(a["date"]);
     })
+    myCarts = myCarts.filter(cart=>{
+        return cart["items"].length > 0;
+    })
     res.send(history({carts:myCarts}));
 
 })

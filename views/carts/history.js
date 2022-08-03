@@ -6,9 +6,9 @@ export default ({carts})=>{
             return `<div>${cart.date}</div>` + cart.items.map( item => {
                 return   `
                         <div class="cart-item message">
-                          <h3 class="subtitle">${item.product.title}</h3>
+                          <h3 class="title">${item.product.title}</h3>
                           <div class="cart-right">
-                            <div>
+                            <div class="title">
                                 ${item.product.price} x ${item.quantity} = ${item.product.price * item.quantity}
                             </div>
                           </div>
