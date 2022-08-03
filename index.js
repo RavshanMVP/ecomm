@@ -17,4 +17,4 @@ app.use(productsAdminRouter);
 app.use(cartsRouter);
 
 app.use(express.static("styles"));
-app.listen(3000, ()=>{console.log("listening")})
+app.listen(8000, ()=>{console.log("listening")})
