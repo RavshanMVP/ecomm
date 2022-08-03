@@ -1,71 +1,32 @@
 [
   {
-    "items": [],
-    "id": "c087b8f45"
-  },
-  {
     "items": [
       {
-        "productID": "p9317ff17",
-        "quantity": 3
+        "productID": "62b582ba",
+        "quantity": 2
       },
       {
-        "productID": "p62b582ba",
-        "quantity": 1
-      },
-      {
-        "productID": "p5755ac09",
+        "productID": "a8f3ec8c",
         "quantity": 1
       }
     ],
-    "id": "c579b440c"
+    "id": "cc67c6dbd",
+    "user": "ubd165563",
+    "date": "3/8/2022"
   },
   {
     "items": [
       {
-        "productID": "ped1a0390",
+        "productID": "62b582ba",
         "quantity": 1
-      }
-    ],
-    "id": "cca700130"
-  },
-  {
-    "items": [
-      {
-        "productID": "pac3d7258",
-        "quantity": 1
-      }
-    ],
-    "id": "c709af2e0"
-  },
-  {
-    "items": [],
-    "id": "c6c162a61"
-  },
-  {
-    "items": [
-      {
-        "productID": "f6b1fbbc",
-        "quantity": 3
       },
       {
         "productID": "ac3d7258",
         "quantity": 1
-      },
-      {
-        "productID": "ed1a0390",
-        "quantity": 1
       }
     ],
-    "id": "c1dc0c525"
-  },
-  {
-    "items": [
-      {
-        "productID": "e7fccbd5",
-        "quantity": 4
-      }
-    ],
-    "id": "cf82ab1e3"
+    "id": "cafa33d9d",
+    "user": "ubd165563",
+    "date": "3/8/2022"
   }
 ]

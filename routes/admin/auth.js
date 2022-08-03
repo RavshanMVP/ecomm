@@ -33,7 +33,7 @@ router.post("/signin",
 
     const user = await users.filter({email});
     req.session["userID"] = user["id"];
-    res.redirect("/admin/products");
+    res.redirect("/");
 
 })
 

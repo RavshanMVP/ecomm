@@ -32,13 +32,13 @@ export default ({products, searchName=""})=>{
 
     return layout({
         content: `
-          <form method="POST" action="/search"> >
+          <form method="POST" action="/search"> 
             <div class="field" align="center">
               <label class="label">Search for a clothing</label>
               <input class="input" placeholder="Search" name="search" style="width: 500px;">
             </div>
             </form>
-            <form method="POST" action="/sort"> >
+            <form method="POST" action="/sort"> 
             <div class="field" align="center">
                 <button class="button is-info" name = "sort" value="1">Sort by price</button>
                 <button class="button is-info" name = "sort" value="2">Sort by title</button>

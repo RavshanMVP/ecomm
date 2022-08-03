@@ -1,12 +1,14 @@
 import express from "express";
 import list from "../views/products/list.js";
 import productsRep from "../repositories/products.js";
+import middleware from "./admin/middleware.js";
 
 const router = express.Router();
 
 router.get("/", async (req, res) => {
     const products = await productsRep.getAll();
     req.session.search = null;
+    console.log(req.session.userID);
     res.send(list({products}))
 })
 
@@ -27,5 +29,7 @@ router.post("/sort", async (req, res) => {
     }
     res.send(list({products}))
 })
+
+
 
 export default router;

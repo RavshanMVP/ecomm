@@ -2,9 +2,13 @@ import express from "express";
 import carts from "../repositories/carts.js";
 import showCart from "../views/carts/showCart.js";
 import products from "../repositories/products.js";
+import middleware from "./admin/middleware.js";
+import history from "../views/carts/history.js";
+
 const router = express.Router();
 router.post("/cart/products/:id", async(req, res)=>{
     let cart;
+    let date = `${new Date().getDate()}/${new Date().getMonth()+1}/${new Date().getFullYear()}`;
     if (!req.session.CartID){
         cart = await carts.create({items:[]});
         req.session.CartID = cart.id;
@@ -20,7 +24,13 @@ router.post("/cart/products/:id", async(req, res)=>{
     else{
         item["quantity"]++;
     }
-    await carts.change(cart.id, {items:cart.items});
+    if (req.session.userID){
+        await carts.change(cart.id, {items:cart.items, user: req.session.userID, date});
+    }
+    else{
+        await carts.change(cart.id, {items:cart.items, date});
+    }
+
 
     res.redirect("/cart");
 })
@@ -75,5 +85,18 @@ router.post("/cart/:id/dec", async (req, res)=>{
     return res.redirect("/cart");
 })
 
+router.post("/history", middleware.checkAuthentication,async (req, res) => {
+    let myCarts = await carts.getAll();
+    myCarts = await myCarts.filter(cart => cart.user === req.session.userID);
+    for (let cart of myCarts){
+    for (let item of cart.items){
+        const product = await products.getOne(item["productID"]);
+        item.product = product;
+    }
+    }
+
+    res.send(history({carts:myCarts}));
+
+})
 
 export default router;

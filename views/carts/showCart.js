@@ -6,10 +6,10 @@ export default ({items})=>{
     }, 0)
 
     let renderedDiscount;
-    if (total>200){
+    if (total>=200){
         renderedDiscount = `<strike><h1 >$${total}</h1></strike><h1 class="title">$${(0.8*total).toFixed(2)}</h1>`
     }
-    else if (total>100){
+    else if (total>=100){
         renderedDiscount = `<strike><h1 >$${total}</h1></strike><h1 class="title">$${(0.9*total).toFixed(2)}</h1>`
     }
     else{

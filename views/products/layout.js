@@ -28,11 +28,11 @@ export default ({ content }) => {
               </div>
               <div>
                 <ul class="social">
-                  <li><a href=""><i class="fab fa-facebook"></i></a></li>
-                  <li><a href=""><i class="fab fa-twitter"></i></a></li>
-                  <li><a href=""><i class="fab fa-linkedin"></i></a></li>
-                  <li><a href=""><i class="fab fa-dribbble"></i></a></li>
-                  <li><a href=""><i class="fab fa-google-plus"></i></a></li>
+            <form action="/history" method="post" >
+            <button class="button" style="width: 80px; height: 80px; background-color: #631d76;">
+                    <img src="images/clock-rotate-left-solid.svg" style="width: 80px; height: 80px;">
+            </button>
+            </form>
                 </ul>
               </div>
             </div>
