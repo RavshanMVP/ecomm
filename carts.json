@@ -2,78 +2,25 @@
   {
     "items": [
       {
-        "productID": "ac3d7258",
-        "quantity": 1
-      }
-    ],
-    "id": "c0481b141",
-    "date": "3/8/2022 22:28:29"
-  },
-  {
-    "items": [
-      {
-        "productID": "62b582ba",
-        "quantity": 1
-      },
-      {
-        "productID": "f6b1fbbc",
-        "quantity": 1
-      }
-    ],
-    "id": "c864479fb",
-    "date": "3/8/2022 22:28:57"
-  },
-  {
-    "items": [
-      {
-        "productID": "9317ff17",
-        "quantity": 1
-      }
-    ],
-    "id": "c308fb7dc",
-    "date": "3/8/2022 22:32:21"
-  },
-  {
-    "items": [
-      {
-        "productID": "e7fccbd5",
-        "quantity": 1
-      }
-    ],
-    "id": "c8452bf44",
-    "user": "ubd165563",
-    "date": "3/8/2022 22:32:45"
-  },
-  {
-    "items": [
-      {
-        "productID": "p9bd7175e",
-        "quantity": 2
-      },
-      {
         "productID": "p59bcd898",
-        "quantity": 2
+        "quantity": 3
+      },
+      {
+        "productID": "p6afeb371",
+        "quantity": 1
       }
     ],
-    "id": "c2669ac3d",
-    "user": "ubd165563",
-    "date": "3/8/2022 22:38:5"
+    "id": "cf797d08a",
+    "date": "3/8/2022 22:52:3"
   },
   {
     "items": [
       {
-        "productID": "62b582ba",
-        "quantity": 5
+        "productID": "84d23150",
+        "quantity": 4
       }
     ],
-    "id": "c6606927e",
-    "user": "ubd165563",
-    "date": "3/8/2022 22:42:26"
-  },
-  {
-    "items": [],
-    "id": "c8b8b180a",
-    "user": "ubd165563",
-    "date": "3/8/2022 22:43:15"
+    "id": "ccd96ce57",
+    "date": "3/8/2022 22:52:59"
   }
 ]

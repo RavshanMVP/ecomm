@@ -17,8 +17,10 @@ router.post("/cart/products/:id", async(req, res)=>{
     else{
         cart = await carts.getOne(req.session.CartID)
     }
-
-    const item = cart.items.find(value=>value["productID"]===req.params.id)
+    let item;
+    if (cart.items) {
+        item = cart.items.find(value => value["productID"] === req.params.id)
+    }
     if (!item){
         cart.items.push({productID:req.params.id, quantity:1});
     }
