@@ -27,7 +27,12 @@ export default ({ content }) => {
                 </ul>
               </div>
               <div>
-            <form action="/history" method="post" >
+             <form action="/signin" method="post" style="display: inline">
+            <button class="button is-info">
+                    <h1 class="title" style="color: black">Sign in</h1>
+            </button>
+            </form>
+            <form action="/history" method="post"  style="display: inline">
             <button class="button" style="background-color: #631d76;">
                     <h1 class="title" style="color: black">History</h1>
             </button>
