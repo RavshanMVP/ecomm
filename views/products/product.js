@@ -29,6 +29,28 @@ export default ({product, message=""})=>{
 
       `;
 
+    let renderedComments;
+    if (product.reviews){
+        renderedComments = product.reviews.map(review=>{
+            let rating = review.rating ? `Rating: ${review.rating}` : "";
+            let comment = review.comment ? `Comment: ${review.comment}` : "";
+
+        return `
+            <div class=" message">
+              <h3 class="subtitle">${review.user_name}</h3>
+              <div class="">
+                <div class="subtitle">
+                    ${rating}
+                </div>
+                 <div class="subtitle">
+                    ${comment}
+                </div>
+              </div>
+            </div>`
+        }
+        ).join("")}
+
+
     return layout({
         content: `      
       <section>
@@ -89,7 +111,16 @@ export default ({product, message=""})=>{
       style="width: 600px; height: 100px; position: absolute; top:520px;">
     </form>
       </section>   
-
+      <div id="cart" class="container">
+        <div class="columns">
+          <div class="column"></div>
+          <div class="column is-four-fifths">
+            <h3 class="title"><b>Reviews </b></h3>
+              ${ renderedComments}
+          </div>
+          <div class="column"></div>
+        </div>
+      </div>
     `
     });
 };
