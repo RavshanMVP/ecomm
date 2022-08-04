@@ -22,6 +22,11 @@ export default  ({errors, product})=>{
             </div>
             
             <div class="field">
+              <label class="label">Description</label>
+              <textarea class="input" placeholder="Description" name="description" >${product.description}</textarea>
+            </div>
+            
+            <div class="field">
               <label class="label">Image</label>            
               <input type="file" name="image" />
             </div>

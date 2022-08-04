@@ -1,5 +1,6 @@
 import express from "express";
 import list from "../views/products/list.js";
+import product from "../views/products/product.js";
 import productsRep from "../repositories/products.js";
 import middleware from "./admin/middleware.js";
 
@@ -12,6 +13,11 @@ router.get("/", async (req, res) => {
     res.send(list({products}))
 })
 
+router.post("/products/:id", async (req, res) => {
+    const prod = await productsRep.getOne(req.params.id);
+    res.send(product({product:prod}));
+}
+)
 
 router.post("/search", async (req, res) => {
     let products = await productsRep.search(req.body.search);

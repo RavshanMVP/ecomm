@@ -30,12 +30,12 @@ router.post("/admin/products/new",
     [validators.checkTitle, validators.checkPrice],
     middleware.handleErrors(newProduct),
     async (req, res) => {
-    const {title, price} = req.body;
+    const {title, price, description} = req.body;
 
 
     try {
         const image = (req.file.buffer.toString("base64"));
-        await products.create({title, price, image});
+        await products.create({title, price,description, image});
         if (req.body.button_id === "1") {
             res.redirect("/admin/products");
         }
@@ -69,14 +69,14 @@ router.post("/admin/products/:id",
         return {product};
     }),
     async (req, res) => {
-        const {title, price} = req.body;
+        const {title, price, description} = req.body;
 
         try {
             if (req.file) {
                 const image = (req.file.buffer.toString("base64"));
-                await products.change(req.params.id, {title, price, image});
+                await products.change(req.params.id, {title, price, description, image});
             } else {
-                await products.change(req.params.id, {title, price});
+                await products.change(req.params.id, {title, price, description});
             }
         }
         catch (err){
