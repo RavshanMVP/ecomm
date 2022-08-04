@@ -6,7 +6,7 @@ import users from "../repositories/users.js";
 import middleware from "./admin/middleware.js";
 
 const router = express.Router();
-
+let message;
 router.get("/", async (req, res) => {
     const products = await productsRep.getAll();
     req.session.search = null;
@@ -21,7 +21,7 @@ router.post("/products/:id", async (req, res) => {
 
 router.get("/products/:id", async (req, res) => {
     const prod = await productsRep.getOne(req.params.id);
-    res.send(product({product:prod}));
+    res.send(product({product:prod, message}));
 })
 
 router.post("/products/:id/rate", async (req, res) => {
@@ -33,6 +33,7 @@ router.post("/products/:id/rate", async (req, res) => {
     const user = await users.getOne(req.session.userID);
     let rating;
     let review;
+    message ="";
     if (prod.rating && prod.count){
         rating = ((parseFloat(prod.rating) * parseFloat(prod.count)
             + parseFloat(req.body.rate)) / (parseFloat(prod.count)+1))
@@ -44,19 +45,36 @@ router.post("/products/:id/rate", async (req, res) => {
     }
 
     review = {
-        rating,
+        rating:req.body.rate,
         user_name:user.email
     }
     if (!prod.reviews){
         prod.reviews= [];
     }
 
-    prod.reviews.push(review);
+    let edit = false;
+
+    prod.reviews.map(rev=>{
+        if (rev["user_name"] === user.email){
+            message = "You changed your rating";
+            edit = true;
+            rating = ((parseFloat(prod.rating) * (parseFloat(prod.count)-1)
+                + parseFloat(req.body.rate) - parseFloat(rev["rating"])) / (parseFloat(prod.count)-1))
+            rev["rating"] = req.body.rate;
+            prod.count--;
+        }
+
+    })
+
+    if(edit === false) {
+        prod.reviews.push(review);
+    }
+
 
     await productsRep.change(req.params.id, {rating, count: prod.count,
         title: prod.title, price: prod.price, description: prod.description, reviews : prod.reviews})
 
-    res.redirect(`/products/${req.params.id}`)
+    return res.redirect(`/products/${req.params.id}`);
 })
 
 router.post("/search", async (req, res) => {
