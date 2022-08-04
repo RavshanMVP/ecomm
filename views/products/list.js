@@ -1,6 +1,6 @@
 import layout from "./layout.js";
 
-export default ({products, searchName=""})=>{
+export default ({products, searchName="", signin = true})=>{
     let renderedProducts = products
         .map(product => {
             return `
@@ -68,6 +68,7 @@ export default ({products, searchName=""})=>{
           </div>
         </div>
       </section>
-    `
+    `,
+        signin
     });
 };

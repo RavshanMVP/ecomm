@@ -21,5 +21,11 @@ export default {
             return res.redirect("/signin");
         }
         next();
+    },
+    isAuthenticated(req){
+        if (!req.session.userID) {
+            return true;
+        }
+        return false;
     }
 }

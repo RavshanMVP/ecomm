@@ -1,6 +1,6 @@
 import layout from "./layout.js";
 
-export default ({product, message=""})=>{
+export default ({product, message="" ,signin = true})=>{
     const description = product.description ? product.description : "No description yet"
     const rating = product.rating ? parseFloat(product.rating).toFixed(1) : "No rating yet"
     let renderedProducts =
@@ -123,6 +123,7 @@ export default ({product, message=""})=>{
           <div class="column"></div>
         </div>
       </div>
-    `
+    `,
+        signin
     });
 };

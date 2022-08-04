@@ -1,4 +1,20 @@
-export default ({ content }) => {
+export default ({ content, signin }) => {
+    let sign;
+    if(signin){
+        sign = `            
+             <form action="/signin" method="post" style="display: inline">
+            <button class="button is-primary">
+                    <h1 class="title" style="color: black">Sign in</h1>
+            </button>
+            </form>`;
+    }
+    else {
+        sign = `<form action="/signout" method="post" style="display: inline">
+                <button class="button is-danger">
+                    <h1 class="title" style="color: black">Sign out</h1>
+                </button>
+            </form>`;
+    }
     return `
     <!DOCTYPE html>
       <html lang="en">
@@ -27,11 +43,7 @@ export default ({ content }) => {
                 </ul>
               </div>
               <div>
-             <form action="/signin" method="post" style="display: inline">
-            <button class="button is-primary">
-                    <h1 class="title" style="color: black">Sign in</h1>
-            </button>
-            </form>
+             ${sign}
             <form action="/history" method="post"  style="display: inline">
             <button class="button is-link" >
                     <h1 class="title" style="color: black">History</h1>

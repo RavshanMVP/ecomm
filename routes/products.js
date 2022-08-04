@@ -11,24 +11,25 @@ router.get("/", async (req, res) => {
     const products = await productsRep.getAll();
     req.session.search = null;
     console.log(req.session.userID);
-    res.send(list({products}))
+    res.send(list({products, signin:middleware.isAuthenticated(req)}))
 })
 
 router.post("/products/:id", async (req, res) => {
     const prod = await productsRep.getOne(req.params.id);
-    res.send(product({product:prod}));
+    res.send(product({product:prod, signin:middleware.isAuthenticated(req)}));
 })
 
 router.get("/products/:id", async (req, res) => {
     const prod = await productsRep.getOne(req.params.id);
-    res.send(product({product:prod, message}));
+    res.send(product({product:prod, message, signin:middleware.isAuthenticated(req)}));
 })
 
 router.post("/products/:id/rate", async (req, res) => {
 
     const prod = await productsRep.getOne(req.params.id);
     if(!req.session.userID){
-        return res.send(product({product:prod, message:"You must be registered to give rating"}));
+        return res.send(product({product:prod, message:"You must be registered to give rating",
+            signin:middleware.isAuthenticated(req)}));
     }
     const user = await users.getOne(req.session.userID);
     let rating;
@@ -75,7 +76,6 @@ router.post("/products/:id/rate", async (req, res) => {
         sum+=parseFloat(review["rating"]);
     }
     rating=sum/parseFloat(prod.count);
-    console.log(rating)
 
 
     await productsRep.change(req.params.id, {rating, count: prod.count,
@@ -87,7 +87,8 @@ router.post("/products/:id/rate", async (req, res) => {
 router.post("/products/:id/comment", async (req, res)=>{
     const prod = await productsRep.getOne(req.params.id);
     if(!req.session.userID){
-        return res.send(product({product:prod, message:"You must be registered to comment"}));
+        return res.send(product({product:prod, message:"You must be registered to comment",
+            signin:middleware.isAuthenticated(req)}));
     }
     const user = await users.getOne(req.session.userID);
     message = "";
@@ -123,7 +124,7 @@ router.post("/products/:id/comment", async (req, res)=>{
 router.post("/search", async (req, res) => {
     let products = await productsRep.search(req.body.search);
     req.session.search = req.body.search;
-    res.send(list({products, searchName:req.body.search}))
+    res.send(list({products, searchName:req.body.search, signin:middleware.isAuthenticated(req)}))
 })
 
 router.post("/sort", async (req, res) => {
@@ -134,7 +135,7 @@ router.post("/sort", async (req, res) => {
     else if(req.body.sort ==="2"){
         products = await productsRep.sortByTitle(products);
     }
-    res.send(list({products}))
+    res.send(list({products, signin:middleware.isAuthenticated(req)}))
 })
 
 

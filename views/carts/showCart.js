@@ -1,6 +1,6 @@
 import layout from "../products/layout.js";
 
-export default ({items})=>{
+export default ({items, signin = true})=>{
     const total = items.reduce((prev, curr)=>{
         return prev + curr.product.price *curr.quantity;
     }, 0)
@@ -79,6 +79,7 @@ export default ({items})=>{
           <div class="column"></div>
         </div>
       </div>
-    `
+    `,
+        signin
     });
 };

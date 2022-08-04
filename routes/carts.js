@@ -42,13 +42,14 @@ router.get("/cart", async (req, res) => {
     if(!req.session.CartID){
         return res.redirect("/");
     }
+    console.log(middleware.isAuthenticated(req))
     const cart = await carts.getOne(req.session.CartID);
 
     for (let item of cart.items){
         const product = await products.getOne(item["productID"]);
         item.product = product;
     }
-    return res.send(showCart({items:cart.items}));
+    return res.send(showCart({items:cart.items, signin:middleware.isAuthenticated(req)}));
 })
 
 router.post("/cart/:id", async (req, res)=>{
@@ -104,7 +105,7 @@ router.post("/history",async (req, res) => {
     myCarts = myCarts.filter(cart=>{
         return cart["items"].length > 0;
     })
-    res.send(history(myCarts));
+    res.send(history(myCarts, middleware.isAuthenticated(req)));
 
 })
 
@@ -124,7 +125,7 @@ router.get("/history",async (req, res) => {
     myCarts = myCarts.filter(cart=>{
         return cart["items"].length > 0;
     })
-    res.send(history(myCarts));
+    res.send(history(myCarts, middleware.isAuthenticated(req)));
 
 })
 
