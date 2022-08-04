@@ -22,7 +22,7 @@ export default ({carts})=>{
         <div class="columns">
           <div class="column"></div>
           <div class="column is-four-fifths">
-            <h3 class="subtitle"><b>Shopping Cart</b></h3>
+            <h3 class="subtitle"><b>Your History </b></h3>
               ${ renderedItems}
           </div>
           <div class="column"></div>

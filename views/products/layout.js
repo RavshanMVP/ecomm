@@ -27,13 +27,11 @@ export default ({ content }) => {
                 </ul>
               </div>
               <div>
-                <ul class="social">
             <form action="/history" method="post" >
-            <button class="button" style="width: 80px; height: 80px; background-color: #631d76;">
-                    <img src="images/clock-rotate-left-solid.svg" class="history" style="width: 80px; height: 80px;">
+            <button class="button" style="background-color: #631d76;">
+                    <h1 class="title" style="color: black">History</h1>
             </button>
             </form>
-                </ul>
               </div>
             </div>
           </nav>

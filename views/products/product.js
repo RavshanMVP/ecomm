@@ -1,8 +1,8 @@
 import layout from "./layout.js";
 
-export default ({product})=>{
+export default ({product, message=""})=>{
     const description = product.description ? product.description : "No description yet"
-    const rating = product.rating ? product.rating : "No rating yet"
+    const rating = product.rating ? parseFloat(product.rating).toFixed(1) : "No rating yet"
     let renderedProducts =
         `
       <div class="message title product-card" style="position: absolute; top:70px; left: 400px; font-size: 20px;">
@@ -48,6 +48,7 @@ export default ({product})=>{
         </div>
         <form method="post" action="/products/${product.id}/rate">
     <h2 class="title text-center rating" >
+            <div class="title message is-danger">${message}</div>
            Current Rating  -  ${rating}<h2 class="title rating-2">
     Rate:
     <button class="button" style="border: none; font-size: 30px;" name = "rate" value="1">               
@@ -79,9 +80,11 @@ export default ({product})=>{
                 <i class="fa fa-star"></i>
           </span>
     </button>
+
                 </h2>
     </h2>
     </form>
+
       </section>
     `
     });

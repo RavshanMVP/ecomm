@@ -69,14 +69,14 @@ router.post("/admin/products/:id",
         return {product};
     }),
     async (req, res) => {
-        const {title, price, description, rating, count} = req.body;
+        const {title, price, description, rating, count, reviews} = req.body;
 
         try {
             if (req.file) {
                 const image = (req.file.buffer.toString("base64"));
-                await products.change(req.params.id, {title, price, description, rating, count, image});
+                await products.change(req.params.id, {title, price, description, rating, count, image, reviews});
             } else {
-                await products.change(req.params.id, {title, price, rating, count, description});
+                await products.change(req.params.id, {title, price, rating, count, description, reviews});
             }
         }
         catch (err){
