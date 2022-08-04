@@ -21,6 +21,7 @@ export default  ({errors})=>{
               <p class="help is-danger">${helper.getError(errors, 'price')}</p>
             </div>
             
+            
             <div class="field">
               <label class="label">Description</label>
               <textarea class="input" placeholder="Description" name="description"></textarea> 

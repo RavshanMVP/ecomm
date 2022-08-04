@@ -144,3 +144,19 @@ body {
   display: flex;
   align-items: center;
 }
+
+.rating{
+position: absolute;
+  top:500px;
+  left: 500px;
+}
+
+.rating-2{
+  position: absolute;
+  top:550px;
+  left: 500px;
+}
+
+.history{
+  border: none;
+}

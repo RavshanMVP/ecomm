@@ -1,9 +1,13 @@
 import layout from "./layout.js";
 
 export default ({product})=>{
+    const description = product.description ? product.description : "No description yet"
+    const rating = product.rating ? product.rating : "No rating yet"
     let renderedProducts =
         `
-      <div class="message title" style="position: absolute; top:100px; left: 400px;">${product.description}</div>
+      <div class="message title product-card" style="position: absolute; top:70px; left: 400px; font-size: 20px;">
+        <div class="title">Description</div>
+        ${description}</div>
         <div class="column is-one-quarter">
           <div class="card product-card" >
             <figure >
@@ -22,7 +26,7 @@ export default ({product})=>{
             </footer>
           </div>
         </div>
-  
+
       `;
 
     return layout({
@@ -42,6 +46,42 @@ export default ({product})=>{
             <div class="column "></div>
           </div>
         </div>
+        <form method="post" action="/products/${product.id}/rate">
+    <h2 class="title text-center rating" >
+           Current Rating  -  ${rating}<h2 class="title rating-2">
+    Rate:
+    <button class="button" style="border: none; font-size: 30px;" name = "rate" value="1">               
+          <span>
+                <i class="fa fa-star" ></i>
+          </span>
+    </button>
+
+    <button class="button" style="border: none; font-size: 30px;" name = "rate" value="2">               
+          <span>
+                <i class="fa fa-star"></i>
+          </span>
+    </button>
+    
+    <button class="button" style="border: none; font-size: 30px;" name = "rate" value="3">               
+          <span>
+                <i class="fa fa-star"></i>
+          </span>
+    </button>
+ 
+     <button class="button" style="border: none; font-size: 30px;" name = "rate" value="4">               
+          <span>
+                <i class="fa fa-star"></i>
+          </span>
+    </button>
+    
+    <button class="button" style="border: none; font-size: 30px;" name = "rate" value="5">               
+          <span>
+                <i class="fa fa-star"></i>
+          </span>
+    </button>
+                </h2>
+    </h2>
+    </form>
       </section>
     `
     });

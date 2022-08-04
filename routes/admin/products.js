@@ -63,20 +63,20 @@ router.get("/admin/products/:id",
 router.post("/admin/products/:id",
     middleware.checkAuthentication,
     upload.single("image"),
-    [validators.checkTitle, validators.checkPrice],
+    [validators.checkTitle, validators.checkPrice, validators.checkCount, validators.checkRating],
     middleware.handleErrors(edit, async (req,res)=>{
         const product = await products.getOne(req.params.id);
         return {product};
     }),
     async (req, res) => {
-        const {title, price, description} = req.body;
+        const {title, price, description, rating, count} = req.body;
 
         try {
             if (req.file) {
                 const image = (req.file.buffer.toString("base64"));
-                await products.change(req.params.id, {title, price, description, image});
+                await products.change(req.params.id, {title, price, description, rating, count, image});
             } else {
-                await products.change(req.params.id, {title, price, description});
+                await products.change(req.params.id, {title, price, rating, count, description});
             }
         }
         catch (err){

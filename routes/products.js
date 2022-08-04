@@ -16,8 +16,29 @@ router.get("/", async (req, res) => {
 router.post("/products/:id", async (req, res) => {
     const prod = await productsRep.getOne(req.params.id);
     res.send(product({product:prod}));
-}
-)
+})
+
+router.get("/products/:id", async (req, res) => {
+    const prod = await productsRep.getOne(req.params.id);
+    res.send(product({product:prod}));
+})
+
+router.post("/products/:id/rate", async (req, res) => {
+    const prod = await productsRep.getOne(req.params.id);
+    if (prod.rating && prod.count){
+        prod.rating = ((parseInt(prod.rating) * parseInt(prod.count)
+            + parseInt(req.body.rate)) / (parseInt(prod.count)+1)).toFixed(1)
+        prod.count= parseInt(prod.count) + 1;
+    }
+    else{
+        prod.count = 1;
+        prod.rating = parseInt(req.body.rate);
+    }
+
+    await productsRep.change(req.params.id, {rating:prod.rating, count: prod.count,
+        title: prod.title, price: prod.price, description: prod.description})
+    res.send(product({product:prod}));
+})
 
 router.post("/search", async (req, res) => {
     let products = await productsRep.search(req.body.search);

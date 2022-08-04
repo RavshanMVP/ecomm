@@ -49,6 +49,10 @@ export default {
     checkTitle:
         check("title").trim().isLength({min:5, max:40}).withMessage("Too short or too long title"),
     checkPrice:
-        check("price").toFloat().isFloat({min:1}).withMessage("Price must be a number")
+        check("price").toFloat().isFloat({min:1}).withMessage("Price must be a number"),
+    checkCount:
+        check("count").toInt().isInt({min:0}).withMessage("Count must be an integer number"),
+    checkRating:
+        check("rating").toFloat().isFloat({min:1, max:5}).withMessage("Rating should be between 1 and 5"),
 }
 

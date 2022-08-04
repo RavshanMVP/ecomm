@@ -30,7 +30,7 @@ export default ({ content }) => {
                 <ul class="social">
             <form action="/history" method="post" >
             <button class="button" style="width: 80px; height: 80px; background-color: #631d76;">
-                    <img src="images/clock-rotate-left-solid.svg" style="width: 80px; height: 80px;">
+                    <img src="images/clock-rotate-left-solid.svg" class="history" style="width: 80px; height: 80px;">
             </button>
             </form>
                 </ul>
