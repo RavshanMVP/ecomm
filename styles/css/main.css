@@ -147,16 +147,20 @@ body {
 
 .rating{
 position: absolute;
-  top:500px;
+  top:400px;
   left: 500px;
 }
 
 .rating-2{
   position: absolute;
-  top:550px;
+  top:450px;
   left: 500px;
 }
 
+.comment{
+  position: absolute;
+  left: 500px;
+}
 .history{
   border: none;
 }

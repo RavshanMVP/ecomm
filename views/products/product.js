@@ -84,8 +84,12 @@ export default ({product, message=""})=>{
                 </h2>
     </h2>
     </form>
+      <form action="/products/${product.id}/comment" method="post">
+      <input class="input comment" placeholder="Comment" name="comment"
+      style="width: 600px; height: 100px; position: absolute; top:520px;">
+    </form>
+      </section>   
 
-      </section>
     `
     });
 };
