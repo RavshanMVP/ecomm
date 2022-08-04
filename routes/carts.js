@@ -104,8 +104,44 @@ router.post("/history",async (req, res) => {
     myCarts = myCarts.filter(cart=>{
         return cart["items"].length > 0;
     })
-    res.send(history({carts:myCarts}));
+    res.send(history(myCarts));
 
+})
+
+router.get("/history",async (req, res) => {
+    let myCarts = await carts.getAll();
+    myCarts = await myCarts.filter(cart => cart.user === req.session.userID);
+    for (let cart of myCarts){
+        for (let item of cart.items){
+            const product = await products.getOne(item["productID"]);
+            item.product = product;
+        }
+    }
+
+    myCarts = myCarts.sort((a,b)=>{
+        return b["date"].localeCompare(a["date"]);
+    })
+    myCarts = myCarts.filter(cart=>{
+        return cart["items"].length > 0;
+    })
+    res.send(history(myCarts));
+
+})
+
+router.post("/history/clear", async (req, res) => {
+    let allCarts = await carts.getAll();
+    allCarts = allCarts.filter(cart=>{
+        return cart.user !== req.session.userID;
+    })
+
+    for (let cart of allCarts){
+        for (let item of cart.items){
+            const product = await products.getOne(item["productID"]);
+            item.product = product;
+        }
+    }
+    await carts.writeAll(allCarts);
+    res.send(history());
 })
 
 router.post("/buy", async (req, res) => {

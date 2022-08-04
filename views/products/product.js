@@ -49,7 +49,9 @@ export default ({product, message=""})=>{
             </div>`
         }
         ).join("")}
-
+    else {
+        renderedComments="No reviews yet";
+    }
 
     return layout({
         content: `      

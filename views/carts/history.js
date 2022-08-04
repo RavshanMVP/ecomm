@@ -1,10 +1,14 @@
 import layout from "../products/layout.js";
-export default ({carts})=>{
-
-    const renderedItems = carts
-        .map( cart => {
-            return `<div>${cart.date}</div>` + cart.items.map( item => {
-                return   `
+export default (carts)=>{
+    let renderedItems;
+    if (!carts){
+        renderedItems="";
+    }
+    else {
+        renderedItems = carts
+            .map(cart => {
+                return `<div>${cart.date}</div>` + cart.items.map(item => {
+                    return `
                         <div class="cart-item message">
                           <h3 class="title">${item.product.title}</h3>
                           <div class="cart-right">
@@ -13,9 +17,11 @@ export default ({carts})=>{
                             </div>
                           </div>
                         </div>
-                      `;}).join("")
-                        ;}).join("")
-
+                      `;
+                }).join("")
+                    ;
+            }).join("")
+    }
     return layout({
         content: `
       <div id="cart" class="container">
@@ -23,6 +29,9 @@ export default ({carts})=>{
           <div class="column"></div>
           <div class="column is-four-fifths">
             <h3 class="subtitle"><b>Your History </b></h3>
+            <form method="post" action="/history/clear">
+            <button class="button">Clear history</button>
+            </form>
               ${ renderedItems}
           </div>
           <div class="column"></div>
