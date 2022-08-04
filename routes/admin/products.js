@@ -69,7 +69,7 @@ router.post("/admin/products/:id",
         return {product};
     }),
     async (req, res) => {
-        const {title, price, description, rating, count, reviews} = req.body;
+        const {title, price, description, rating, count, reviews} = await products.getOne(req.params.id);
 
         try {
             if (req.file) {
