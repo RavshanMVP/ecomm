@@ -28,12 +28,12 @@ export default ({ content }) => {
               </div>
               <div>
              <form action="/signin" method="post" style="display: inline">
-            <button class="button is-info">
+            <button class="button is-primary">
                     <h1 class="title" style="color: black">Sign in</h1>
             </button>
             </form>
             <form action="/history" method="post"  style="display: inline">
-            <button class="button" style="background-color: #631d76;">
+            <button class="button is-link" >
                     <h1 class="title" style="color: black">History</h1>
             </button>
             </form>
