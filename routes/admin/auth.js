@@ -45,7 +45,7 @@ router.post("/signup",
 
         const user = await users.create({email, password});
         req.session["userID"] = user["id"];
-        res.redirect("/admin/products");
+        res.redirect("/");
     }
 )
 
